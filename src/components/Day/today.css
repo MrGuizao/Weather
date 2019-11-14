@@ -1,0 +1,51 @@
+.today {
+     width: 400px;
+     height: 450px;
+     border-radius: 5px;
+     padding: 15px;
+     box-shadow: 0 0 5px #00000090;
+     font-size: 20px;
+     font-weight: normal;
+     background-color: #ffffff60;
+     display: flex;
+     flex-flow: row nowrap;
+     justify-content: center;
+     align-items: flex-start;
+
+}
+
+.today i {
+     position: relative;
+     top: 10%;
+     left: 50%;
+     transform: translate(-50%, -50%);
+     font-size: 6.5rem;
+     color: #ffd901;
+
+}
+
+.today p {
+     position: absolute;
+     top: 50%;
+     left: 50%;
+     transform: translate(-50%, -50%);
+     font-size: 30px;
+     color: black;
+     z-index: 3;
+
+}
+
+i.fa-sun {
+     animation: girar 40s infinite;
+     animation-timing-function: cubic-bezier(1, 1, 1, 1);
+}
+
+@keyframes girar {
+     from {
+          transform: rotate(0deg);
+     }
+
+     to {
+          transform: rotate(360deg);
+     }
+}
