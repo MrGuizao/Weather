@@ -24,10 +24,14 @@ export class App extends Component {
     //   console.log(lat, long)
     // });
 
-    await fetch(`${proxy}https://api.darksky.net/forecast/05e813aff5a24de731e9391ad0755a81/${lat},${long}?lang=pt`)
+    await fetch(`${proxy}https://api.darksky.net/forecast/${process.env.REACT_APP_WEATHER_API}/${lat},${long}?lang=pt`)
       .then(response => response.json())
       .then(response => this.setState({ location: response.timezone, diario: response.daily.data, hoje: response.hourly.data, agora: response.currently }))
 
+  }
+
+  convertToCelsius = (temp) => {
+    return ((temp - 32) * 5 / 9).toFixed(1) + '°';
   }
 
   render() {
@@ -39,8 +43,8 @@ export class App extends Component {
         <h1>Previsão do tempo em São Paulo</h1>
 
         <div className="division">
-          <Today hoje={this.state.hoje} agora={this.state.agora} />
-          <Days diario={this.state.diario} />
+          <Today hoje={this.state.hoje} agora={this.state.agora} convert={this.convertToCelsius}/>
+          <Days diario={this.state.diario} convert={this.convertToCelsius} />
         </div>
 
       </div>

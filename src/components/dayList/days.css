@@ -1,8 +1,8 @@
 ul li {
      border-radius: 5px;
-     padding: 12px 40px;
-     margin: 10px auto;
-     box-shadow: 0 0 5px #00000090;
+     padding: 12px;
+     margin: 12px auto;
+     box-shadow: 0 2px 5px #00000090;
      font-size: 20px;
      font-weight: normal;
      background-color: #ffffff60;
@@ -11,10 +11,16 @@ ul li {
      flex-flow: row nowrap;
 }
 
+ul li:nth-child(1),
+ul li:nth-last-child(1) {
+     margin: 0;
+
+}
+
 ul li div {
      display: flex;
      flex-flow: row nowrap;
-     margin: 0 20px;
+     margin: 0;
 
 }
 
@@ -25,4 +31,5 @@ ul li strong {
 
 ul li p {
      padding: 0 10px;
+     
 }
