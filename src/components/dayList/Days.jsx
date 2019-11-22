@@ -8,7 +8,7 @@ const Days = ({ diario, convert }) => {
      return (
                <ul>
                     {
-                         diario.map((dia, index) => <li key={dia.time}>{semana[index]}: {dia.summary}
+                         diario.map((dia, index) => <li className="box-color" key={dia.time}>{semana[index]}: {dia.summary}
                               <div>
                                    <p className="max-temp">Min: {convert(dia.temperatureMin)}</p>
                                    <p className="min-temp">Max: {convert(dia.temperatureMax)}</p>
