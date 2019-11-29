@@ -23,6 +23,8 @@ export class App extends Component {
     //   long = position.coords.longitude;
     //   console.log(lat, long)
     // });
+    // ola mundo 
+    // asas
 
     await fetch(`${proxy}https://api.darksky.net/forecast/${process.env.REACT_APP_WEATHER_API}/${lat},${long}?lang=pt`)
       .then(response => response.json())
