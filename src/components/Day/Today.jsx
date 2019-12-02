@@ -4,7 +4,7 @@ import './today.css';
 const Today = ({ hoje, agora, convert }) => {
      console.log(hoje);
      return (
-          <div className="today">
+          <div className="today box-color">
                <i class="fas fa-sun"></i>
                <h3>{convert(agora.temperature)}</h3>
                {/* <h2>Hoje</h2> */}

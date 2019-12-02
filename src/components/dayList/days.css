@@ -1,14 +1,15 @@
 ul li {
      border-radius: 5px;
      padding: 12px;
-     margin: 12px auto;
+     margin: 13px auto;
      box-shadow: 0 2px 5px #00000090;
      font-size: 20px;
      font-weight: normal;
-     background-color: #ffffff60;
+     background-color: #ffffffa0;
      display: flex;
      justify-content: space-between;
      flex-flow: row nowrap;
+
 }
 
 ul li:nth-child(1),
