@@ -1,12 +1,17 @@
 import React from 'react';
 import './image.css';
-import Rain from '../assets/sun.jpg';
-import Rainy from '../assets/cloud.jpg';
-// import Rainy from '../assets/tr.jpg';
+import Cloud from '../assets/cloud.jpg';
+import Rain from '../assets/rain.jpg';
+import Rainy from '../assets/rainy.jpg';
+import Sun from '../assets/sun.jpg';
+import Thunder from '../assets/thunder.jpg';
 
-export default Image = () => <img src={Rain} alt="" />
+Image = ({ icone }) => (
+     <img src={Thunder} alt="" />
 
+)
 
+export default Image;
 
 
 // clear - day, clear - night, rain, snow, sleet, wind, fog, cloudy, partly - cloudy - day, or partly - cloudy - night. 
