@@ -1,24 +1,25 @@
 import React from 'react';
 import './today.css';
 
-const Today = ({ hoje, agora, convert }) => {
-     console.log(hoje);
+const Today = ({ agora, convert, humidity }) => {
+     console.log(agora);
+     const data = new Date();
      return (
           <div className="today box-color">
-               <i class="fas fa-sun"></i>
-               <h3>{convert(agora.temperature)}</h3>
-               {/* <h2>Hoje</h2> */}
-               {/* <i className="fas fa-cloud-rain"> */}
-               {/* <i class="fas fa-cloud"></i> */}
-               {/* <i class="fas fa-cloud-sun"></i> */}
-               {/* temperatura Min max*/}
-               {/* Ventos */}
-               {/* horas 9, 12, 15, 18, 21, 24*/}
-               {/* </i> */}
-               {/* <p>{agora.summary}</p> */}
-               {/* <p></p>
-               <p></p>
-               <p></p> */}
+               <div className="animate-icon">
+                    <i className="fas fa-cloud"></i>
+                    <h3>{convert(agora.temperature)}</h3>
+               </div>
+               <div className="info-now">
+                    <p>Horário: {`${data.getHours()}:${data.getMinutes()}`}</p>
+                    <p>Resumo do tempo: {agora.summary}</p>
+                    <p>Velocidade do vento: {agora.windSpeed} km/h</p>
+                    <p>Umidade: {humidity(agora.humidity)}%</p>
+                    <p>Visibilidade: {agora.visibility} km</p>
+                    <p>Barômetro: {agora.pressure} mb</p>
+                    <p>Precipitação: {agora.precipProbability}%</p>
+
+               </div>
 
           </div>
      )
