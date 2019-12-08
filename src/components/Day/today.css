@@ -1,35 +1,48 @@
 .today {
-     padding: 20px;
+     padding: 15px 60px;
      display: flex;
-     flex-flow: row nowrap;
-     justify-content: space-evenly;
+     flex-flow: column nowrap;
+     justify-content: flex-start;
      align-items: flex-start;
+
+}
+
+.today .animate-icon {
+     margin: 0 auto;
      position: relative;
 
 }
 
 .today i {
-     font-size: 8rem;
-     color: #ffee01;
+     font-size: 5rem;
+     color: #ffffff;
 
 }
 
-.today h3 {
+i.fa-cloud {
+     animation: bounce 5s infinite;
+     animation-timing-function: ease-in-out;
+}
+
+.animate-icon h3 {
      position: absolute;
-     top: 17.6%;
+     top: 65%;
      left: 50%;
      transform: translate(-50%, -50%);
      z-index: 2;
      color: black;
-     font-size: 26px;
+     font-size: 22px;
 
 }
 
-i.fa-sun {
-     animation: spin 36s infinite;
-     /* animation: bounce 8s infinite; */
-     animation-timing-function: cubic-bezier(1, 1, 1, 1);
+.info-now {
+     margin-top: 40px;
+     
 }
+.info-now p{
+     padding: 8px 0;
+}
+
 
 @keyframes spin {
      from {
@@ -47,8 +60,9 @@ i.fa-sun {
      }
 
      50% {
-          transform: scale(1.2, 1.2);
+          transform: scale(1.1, 1.1);
      }
+
      100% {
           transform: scale(1, 1);
      }

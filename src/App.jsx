@@ -33,7 +33,8 @@ export class App extends Component {
   }
 
   //converte para celsius
-  convertToCelsius = (temp) => ((temp - 32) * 5 / 9).toFixed(1) + '°C';
+  convertToCelsius = temp => ((temp - 32) * 5 / 9).toFixed(1) + '°C';
+  convertHumidity = humidity => humidity * 100;
 
   render() {
     if (this.state.loading) {
@@ -50,7 +51,7 @@ export class App extends Component {
           <h1>{this.state.location}</h1>
 
           <div className="division">
-            <Today hoje={this.state.hoje} agora={this.state.agora} convert={this.convertToCelsius} />
+            <Today agora={this.state.agora} convert={this.convertToCelsius} humidity={this.convertHumidity}/>
             <Days diario={this.state.diario} convert={this.convertToCelsius} />
           </div>
 
