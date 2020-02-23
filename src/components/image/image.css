@@ -1,9 +1,17 @@
 img {
-     position: absolute;
-     z-index: -2;
-     width: 100%;
-     background-size: cover;
-     background-repeat: no-repeat;
-     background-attachment: fixed;
-
+  position: absolute;
+  z-index: -2;
+  width: 100%;
+  background-size: cover;
+  background-repeat: no-repeat;
+}
+@media (max-width: 1050px) {
+  img {
+    position: absolute;
+    z-index: -2;
+    width: 100%;
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+       }
 }

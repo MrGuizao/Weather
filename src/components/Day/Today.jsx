@@ -2,7 +2,6 @@ import React from 'react';
 import './today.css';
 
 const Today = ({ agora, convert, humidity }) => {
-     console.log(agora);
      const data = new Date();
      return (
           <div className="today box-color">
@@ -18,9 +17,7 @@ const Today = ({ agora, convert, humidity }) => {
                     <p>Visibilidade: {agora.visibility} km</p>
                     <p>Barômetro: {agora.pressure} mb</p>
                     <p>Precipitação: {agora.precipProbability}%</p>
-
                </div>
-
           </div>
      )
 }

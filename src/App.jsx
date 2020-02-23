@@ -1,11 +1,13 @@
+import './index.css';
 import React, { Component } from 'react'
 import Image from './components/image/Image';
 import Days from './components/dayList/Days';
-import './index.css';
 import Today from './components/Day/Today';
 
 export class App extends Component {
   state = {
+    lat: '',
+    long: '',
     location: '',
     diario: [],
     data: [],
@@ -15,21 +17,20 @@ export class App extends Component {
     loading: false
   }
 
-  async componentDidMount() {
+  componentDidMount() {
     const proxy = `https://cors-anywhere.herokuapp.com/`;
-    let lat = -23.547544, long = -46.636874;
-    // navigator.geolocation.getCurrentPosition(position => {
-    //   lat = position.coords.latitude;
-    //   long = position.coords.longitude;
-    // });
-    // console.log(`${lat}, ${long}`);
-
     this.setState({ loading: true }); //carregando
-    await fetch(`${proxy}https://api.darksky.net/forecast/${process.env.REACT_APP_WEATHER_API}/${lat},${long}?lang=pt`)
-    .then(response => response.json())
-    .then(response => this.setState({ icon: response.currently.icon, location: response.timezone, diario: response.daily.data, hoje: response.hourly.data, agora: response.currently }))
-    
-    this.setState({ loading: false }); //carregando
+    if (window.navigator.geolocation) {
+      window.navigator.geolocation.getCurrentPosition(async (position) => {
+        this.setState({ long: position.coords.longitude });
+        this.setState({ lat: position.coords.latitude });
+        await fetch(`${proxy}https://api.darksky.net/forecast/${process.env.REACT_APP_WEATHER_API}/${this.state.lat},${this.state.long}?lang=pt`)
+          .then(response => response.json())
+          .then(response => this.setState({ icon: response.currently.icon, location: response.timezone, diario: response.daily.data, hoje: response.hourly.data, agora: response.currently }))
+        this.setState({ loading: false }); //carregando
+        console.log(this.state.lat, this.state.long)
+      });
+    }
   }
 
   //converte para celsius
@@ -51,12 +52,10 @@ export class App extends Component {
           <h1>{this.state.location}</h1>
 
           <div className="division">
-            <Today agora={this.state.agora} convert={this.convertToCelsius} humidity={this.convertHumidity}/>
+            <Today agora={this.state.agora} convert={this.convertToCelsius} humidity={this.convertHumidity} />
             <Days diario={this.state.diario} convert={this.convertToCelsius} />
           </div>
-
         </div>
-        
       )
     }
   }
